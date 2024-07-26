@@ -14,12 +14,11 @@
 
 @function svg-url($svg) {
     //  Add missing namespace
-    @if not string.index($svg,xmlns) {
+    @if not string.index($svg, 'xmlns') {
         $svg: functions.str-replace($svg, '<svg', '<svg xmlns="http://www.w3.org/2000/svg"');
     }
 
-    //  Chunk up string in order to avoid
-    //  "stack level too deep" error
+    //  Chunk up string in order to avoid "stack level too deep" error
     $encoded: '';
     $slice: 2000;
     $index: 0;
@@ -27,18 +26,16 @@
     @for $i from 1 through $loops {
         $chunk: string.slice($svg, $index, $index + $slice - 1);
 
-        //   Encode
-        $chunk: functions.str-replace($chunk, '"', '\'');
-        $chunk: functions.str-replace($chunk, '%', '%25');
+        //  Encode
         $chunk: functions.str-replace($chunk, '#', '%23');
-        $chunk: functions.str-replace($chunk, '{', '%7B');
-        $chunk: functions.str-replace($chunk, '}', '%7D');
-        $chunk: functions.str-replace($chunk, '<', '%3C');
-        $chunk: functions.str-replace($chunk, '>', '%3E');
+        $chunk: functions.str-replace($chunk, '<', '%3C');  // IE is rumored to
+        $chunk: functions.str-replace($chunk, '>', '%3E');  // require <> encoded
 
-        //    The maybe list
-        //    Keep size and compile time down
-        //    ... only add on documented fail
+        //  The maybe list: Keep size and compile time down, only add on fail
+        //  $chunk: functions.str-replace($chunk, '"', '\'');
+        //  $chunk: functions.str-replace($chunk, '%', '%25');
+        //  $chunk: functions.str-replace($chunk, '{', '%7B');
+        //  $chunk: functions.str-replace($chunk, '}', '%7D');
         //  $chunk: str-replace($chunk, '&', '%26');
         //  $chunk: str-replace($chunk, '|', '%7C');
         //  $chunk: str-replace($chunk, '[', '%5B');
@@ -59,9 +56,8 @@
 }
 
 //* -------------------------------------------------------------------------- */
-// images
+// SVG images
 
-// SVGs - xmlns attribute must be first
 // https://github.com/mozilla/protocol-assets/blob/master/icons/expand-white.svg
 $svg-expand-white: '<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g stroke="#FFF" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round"><path d="M12 3.515v16.97M3.515 12h16.97"/></g></svg>';
 
