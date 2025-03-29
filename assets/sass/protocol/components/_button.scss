@@ -163,15 +163,11 @@ a.mzp-c-button {
         border-color: $color-black;
         color: $color-black;
 
-        @include default-states;
-
         // dark
         &.mzp-t-dark {
             background-color: transparent;
             border-color: $color-white;
             color: $color-white;
-
-            @include default-states-dark;
         }
     }
 }
@@ -195,8 +191,6 @@ a.mzp-c-button.mzp-t-product:visited {
         background-color: transparent;
         border-color: $color-blue-50;
         color: $color-blue-50;
-
-        @include product-states;
 
         // dark
         &.mzp-t-dark {
