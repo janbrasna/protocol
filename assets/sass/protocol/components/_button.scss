@@ -69,10 +69,6 @@
     }
 }
 
-@mixin product-states-dark {
-    @include product-states;
-}
-
 // * -------------------------------------------------------------------------- */
 // Button shape and size
 
@@ -207,8 +203,6 @@ a.mzp-c-button.mzp-t-product:visited {
             background-color: rgba($color-white, 0.3);
             border-color: transparent;
             color: $color-white;
-
-            @include product-states;
         }
     }
 }
