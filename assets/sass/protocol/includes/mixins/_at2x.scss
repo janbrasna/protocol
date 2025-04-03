@@ -10,13 +10,16 @@
 //  example.png
 //  example-high-res.png
 // Usage:
-//  @include at2x('/media/img/foo.png', 100px, 100px);
+//  @include at2x('/media/img/example.png', 100px, 100px);
+//  @include at2x('/media/img/example.jpg', auto, 200px);
+//  @include at2x('/media/img/example.jpg', 25%);
+//  @include at2x('/media/img/example.png', contain);
 
 @mixin at2x($path, $w: auto, $h: auto) {
     $hr-suffix: '-high-res';
 
-    // Do not set height to auto if width is contain
-    @if $w == 'contain' {
+    // Do not set height if `contain` or `cover` is passed as the first param
+    @if $w == 'contain' or $w == 'cover' {
         $h: #{''};
     }
 
