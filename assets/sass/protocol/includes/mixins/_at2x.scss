@@ -31,7 +31,7 @@
     // Loop through the image path and find the position of
     // the dot to determine the file extension.
     // Subtract from string length to make an end point that
-    // is always lower than the start point s the loop always
+    // is always lower than the start point so the loop always
     // increments (10 is an arbitrary number).
     @for $i from $length through $length - 10 {
         @if $position == -1 {
