@@ -12,7 +12,7 @@ The long term goal is to provide a robust, unified design system that anyone at
 Mozilla can use to build an on-brand website.
 
 If you’re interested in using Protocol on your project, let us know and we can
-help you. You can find us in #protocol-design-system on Mozilla’s Slack (for
+help you. You can find us in #design-systems or #www on Mozilla’s Slack (for
 Mozillians) or in #protocol-design-system on [Matrix](https://chat.mozilla.org/)
 (open to the public). Also feel free to
 [file an issue on GitHub](https://github.com/mozilla/protocol/issues).
@@ -147,6 +147,9 @@ should also be updated so the documentation site matches the NPM package feature
 1. Verify all is good on the [staging site](https://main--mozilla-protocol.netlify.app/).
 2. Make sure your local `main` branch is up to date.
 3. Push the `main` branch to the `prod` branch: `git push origin main:prod`.
+
+_(The same is triggered on publishing a new GitHub Release, so this can be skipped if 
+already taken care of by automation.)_
 
 A notice will be posted in #www-notify on Slack when the push has completed.
 
